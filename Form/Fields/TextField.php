@@ -1,0 +1,21 @@
+<?php
+namespace Vda\Ui\Form\Fields;
+
+use ArrayAccess;
+
+class TextField extends AbstractFormField
+{
+    public function fetchValue(ArrayAccess $params)
+    {
+        $this->value = $params->offsetGet($this->getName());
+    }
+
+    public function validate()
+    {
+        if ($this->isRequired() && !trim($this->value)) {
+            //TODO lang strings in code are bad
+            return new Error($this, "Please fill {$this->getCation()}");
+        }
+        return false;
+    }
+}
