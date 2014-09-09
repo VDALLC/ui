@@ -1,24 +1,21 @@
 <?php
 namespace Vda\Ui\Form\Elements;
 
-use Vda\Ui\Form\Fields\IFormField;
-
 abstract class AbstractHtmlElement implements IHtmlElement
 {
-    protected $value;
+    protected $attributes = array();
 
-    /**
-     * @var IFormField
-     */
-    protected $field;
-
-    public function __construct(IFormField $field)
+    public function setAttribute($name, $value)
     {
-        $this->field = $field;
+        $this->attributes[$name] = $value;
     }
 
-    public function setValue($value)
+    protected function renderAttributes($extra = array())
     {
-        $this->value = $value;
+        $res = '';
+        foreach (array_merge($this->attributes, $extra) as $name => $value) {
+            $res .= ' ' . $name . '="' . htmlspecialchars($value) . '"';
+        }
+        return $res;
     }
 }

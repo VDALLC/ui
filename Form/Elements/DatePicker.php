@@ -3,7 +3,7 @@ namespace Vda\Ui\Form\Elements;
 
 use Vda\Ui\Form\Fields\IFormField;
 
-class DatePicker extends AbstractHtmlElement
+class DatePicker extends AbstractHtmlInput
 {
     protected $format;
 
@@ -18,17 +18,25 @@ class DatePicker extends AbstractHtmlElement
         $name = $this->field->getName();
         $id = uniqid();
         $year = date('Y');
+        $attrs = $this->renderAttributes(array(
+            'id'    => $id,
+            'type'  => 'text',
+            'name'  => $name,
+            'value' => $this->value,
+        ));
         $res = <<<HTML
-<input id="{$id}" type="text" name="{$name}" value="{$this->value}">
+<input {$attrs}>
 <script type="text/javascript">
-$(function() {
-    $( "#{$id}" ).datepicker({
-        dateFormat: '{$this->format}',
-        changeMonth: true,
-        changeYear: true,
-        yearRange: "1900:{$year}"
+if (window.$) {
+    $(function() {
+        $("#{$id}").datepicker({
+            dateFormat: '{$this->format}',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1900:{$year}"
+        });
     });
-});
+}
 </script>
 HTML;
         return $res;

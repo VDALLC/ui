@@ -1,14 +1,15 @@
 <?php
 namespace Vda\Ui\Form\Elements;
 
-class TextInput extends AbstractHtmlElement
+class TextInput extends AbstractHtmlInput
 {
     public function render()
     {
-        $name = $this->field->getName();
-        $res = <<<HTML
-<input type="text" name="{$name}" value="{$this->value}">
-HTML;
-        return $res;
+        $attrs = $this->renderAttributes(array(
+            'type' => 'text',
+            'name' => $this->field->getName(),
+            'value' => $this->value,
+        ));
+        return "<input {$attrs}>";
     }
 }
