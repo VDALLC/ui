@@ -8,9 +8,8 @@
         "vda/util": "0.11.*|0.12.*"
     },
     "autoload": {
-        "psr-0": { "": "" }
+        "psr-4": { "Vda\\Ui\\": "src/" }
     },
-    "target-dir": "Vda/Ui",
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
