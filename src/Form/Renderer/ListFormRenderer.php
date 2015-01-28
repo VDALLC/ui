@@ -22,7 +22,7 @@ class ListFormRenderer implements IFormRenderer
         $data = $form->getData();
         foreach ($form->getDefinition() as $name => $field) {
             $class = $field->isRequired() ? ' required' : '';
-            $caption = $field->getCation();
+            $caption = $field->getCaption();
             $element = $this->matchElement($field);
             $element->setValue($data[$name]);
             $res .= <<<HTML

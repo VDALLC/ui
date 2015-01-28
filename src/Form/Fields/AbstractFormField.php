@@ -29,7 +29,7 @@ abstract class AbstractFormField implements IFormField
         return $this->flags & self::T_REQUIRED;
     }
 
-    public function getCation()
+    public function getCaption()
     {
         return $this->caption;
     }

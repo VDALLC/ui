@@ -14,7 +14,7 @@ class TextField extends AbstractFormField
     {
         if ($this->isRequired() && !trim($this->value)) {
             //TODO lang strings in code are bad
-            return new Error($this, "Please fill {$this->getCation()}");
+            return new Error($this, "Please fill {$this->getCaption()}");
         }
         return false;
     }

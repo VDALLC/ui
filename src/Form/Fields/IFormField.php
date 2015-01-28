@@ -10,7 +10,7 @@ interface IFormField
 
     public function getName();
     public function isRequired();
-    public function getCation();
+    public function getCaption();
 
     public function fetchValue(ArrayAccess $params);
 
