@@ -11,9 +11,11 @@ class ListFormRenderer implements IFormRenderer
 
     public function __construct()
     {
-        $this->registerField('Vda\Ui\Form\Fields\TextField', 'Vda\Ui\Form\Elements\TextInput');
-        $this->registerField('Vda\Ui\Form\Fields\DateField', 'Vda\Ui\Form\Elements\DatePicker');
-        $this->registerField('Vda\Ui\Form\Fields\FileField', 'Vda\Ui\Form\Elements\FileUpload');
+        $this->registerField('Vda\Ui\Form\Fields\TextBox',     'Vda\Ui\Form\Elements\TextArea');
+        $this->registerField('Vda\Ui\Form\Fields\TextField',   'Vda\Ui\Form\Elements\TextInput');
+        $this->registerField('Vda\Ui\Form\Fields\DateField',   'Vda\Ui\Form\Elements\DatePicker');
+        $this->registerField('Vda\Ui\Form\Fields\FileField',   'Vda\Ui\Form\Elements\FileUpload');
+        $this->registerField('Vda\Ui\Form\Fields\SelectField', 'Vda\Ui\Form\Elements\Select');
     }
 
     public function render(IForm $form)
