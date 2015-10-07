@@ -24,9 +24,14 @@ abstract class AbstractFormField implements IFormField
         return $this->name;
     }
 
+    public function testFlag($flag)
+    {
+        return ($this->flags & $flag) === $flag;
+    }
+
     public function isRequired()
     {
-        return $this->flags & self::T_REQUIRED;
+        return $this->testFlag(self::T_REQUIRED);
     }
 
     public function getCaption()
