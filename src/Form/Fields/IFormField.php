@@ -9,6 +9,7 @@ interface IFormField
     const T_REQUIRED = 1;
 
     public function getName();
+    public function testFlag($flag);
     public function isRequired();
     public function getCaption();
 
